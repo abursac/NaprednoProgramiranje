@@ -19,6 +19,10 @@ import basketballpractice.domain.Coach;
 import basketballpractice.repository.db.DBConnectionFactory;
 import basketballpractice.repository.db.DBRepository;
 
+/**
+ * Implementira konkretne metode za komuniciranje sa bazom podataka
+ * @author Aleksandar
+ */
 public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
 
     @Override
@@ -159,8 +163,10 @@ public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
         }
     }
 
-
-    
+    /**
+     * Dodaje dodeljene trenere za odredjeni trening u bazu
+     * @param training
+     */
     public void addAssignees(Training training){
         System.out.println(training.getAssignees());
         for (Coach assignee : training.getAssignees()) {

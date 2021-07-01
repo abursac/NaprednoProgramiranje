@@ -10,7 +10,7 @@ import basketballpractice.domain.Training;
 import basketballpractice.operation.AbstractGenericOperation;
 
 /**
- *
+ * Klasa koja se odnosi na vracanje svih Training-a
  * @author Aleksandar
  */
 public class GetAllTrainings extends AbstractGenericOperation{
@@ -29,6 +29,10 @@ public class GetAllTrainings extends AbstractGenericOperation{
         trainings = repository.getAll((Training) param);
     }
 
+    /**
+     * Vraca listu Training-a
+     * @return
+     */
     public List<Training> getTrainings() {
         return trainings;
     }

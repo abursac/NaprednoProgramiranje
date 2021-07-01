@@ -6,9 +6,23 @@
 package basketballpractice.view.form.util;
 
 /**
- *
+ * Enum koji odredjuje u kom svojstvu se neka forma otvara
  * @author Aleksandar
  */
 public enum FormMode {
-     FORM_ADD, FORM_EDIT, FORM_VIEW
+
+    /**
+     * Forma se otvara kako bi se u nju dodalo nesto novo
+     */
+    FORM_ADD,
+
+    /**
+     * Forma se otvara kako bi se u njoj izmenilo nesto
+     */
+    FORM_EDIT,
+
+    /**
+     * Forma se otvara kako bi se na njoj pogledalo nesto
+     */
+    FORM_VIEW
 }

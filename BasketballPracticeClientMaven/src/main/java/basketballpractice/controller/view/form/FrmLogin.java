@@ -15,7 +15,7 @@ import javax.swing.JRootPane;
 import basketballpractice.controller.view.component.validator.impl.PasswordValidator;
 import basketballpractice.controller.view.component.validator.impl.RequiredStringValidator;
 /**
- *
+ * Forma pomocu koje se korisnik prijavljuje na sistem
  * @author Aleksandar
  */
 public class FrmLogin extends javax.swing.JFrame {
@@ -102,7 +102,7 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * @param args the command line arguments
+     * @param actionListener
      */
 
 
@@ -110,18 +110,34 @@ public class FrmLogin extends javax.swing.JFrame {
          btnLogin.addActionListener(actionListener);
     }
 
+    /**
+     * vraca Panel za unos sifre
+     * @return
+     */
     public InputPasswordPanel getInputPassword() {
         return inputPassword;
     }
 
+    /**
+     * Setter za inputPassword
+     * @param inputPassword
+     */
     public void setInputPassword(InputPasswordPanel inputPassword) {
         this.inputPassword = inputPassword;
     }
 
+    /**
+     * Getter za inputUsername
+     * @return
+     */
     public InputTextFieldPanel getInputUsername() {
         return inputUsername;
     }
 
+    /**
+     * Setter za inputUsername
+     * @param inputUsername
+     */
     public void setInputUsername(InputTextFieldPanel inputUsername) {
         this.inputUsername = inputUsername;
     }

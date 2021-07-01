@@ -9,15 +9,29 @@ import basketballpractice.repository.Repository;
 import basketballpractice.repository.db.DBRepository;
 import basketballpractice.repository.db.impl.RepositoryDBGeneric;
 
-
+/**
+ * Apstraktna klasa koju nasledjuju sve klase koje rade sa bazom
+ * @author Aleksandar
+ */
 public abstract class AbstractGenericOperation {
 
+    /**
+     * Referenca na vezu sa bazom
+     */
     protected final Repository repository;
 
+    /**
+     * Konstruktor
+     */
     public AbstractGenericOperation() {
         this.repository = new RepositoryDBGeneric();
     }
 
+    /**
+     * Metoda koja izvrsava operaciju u bazi i sacuvava
+     * @param param
+     * @throws Exception
+     */
     public final void execute(Object param) throws Exception {
         try {
             startTransaction();
@@ -38,9 +52,21 @@ public abstract class AbstractGenericOperation {
     }
 
     // Operation-specific method
+
+    /**
+     * Metoda koja ispituje da li su ispunjeni potrebni uslovi u bazi
+     * @param param
+     * @throws Exception
+     */
     protected abstract void preconditions(Object param) throws Exception;
 
     // Operation-specific method
+
+    /**
+     * Metoda koja izvrsava operaciju u bazi
+     * @param param
+     * @throws Exception
+     */
     protected abstract void executeOperation(Object param) throws Exception;
 
     private void commitTransaction() throws Exception {

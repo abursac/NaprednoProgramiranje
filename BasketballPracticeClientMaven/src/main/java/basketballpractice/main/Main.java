@@ -9,10 +9,15 @@ import basketballpractice.controller.view.coordinator.MainCoordinator;
 import basketballpractice.controller.view.form.FrmLogin;
 
 /**
- *
+ * Glavna klijentska klasa
  * @author Aleksandar
  */
 public class Main {
+
+    /**
+     * Main metoda klijentskog projekta
+     * @param args
+     */
     public static void main(String[] args) {
         MainCoordinator.getInstance().openLoginForm();
        

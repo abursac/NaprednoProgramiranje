@@ -22,7 +22,7 @@ import basketballpractice.domain.Coach;
 import basketballpractice.threads.ProcessRequests;
 
 /**
- *
+ * Serverska nit
  * @author Aleksandar
  */
 public class Server extends Thread{
@@ -46,6 +46,9 @@ public class Server extends Thread{
         }
     }
      
+    /**
+     * Zaustavljanje serverske niti
+     */
     public void stopServer() {
         try {
             serverSocket.close();
@@ -60,6 +63,10 @@ public class Server extends Thread{
         processRequests.start();
     }
 
+    /**
+     * Getter za serverski soket
+     * @return
+     */
     public ServerSocket getServerSocket() {
         return serverSocket;
     }

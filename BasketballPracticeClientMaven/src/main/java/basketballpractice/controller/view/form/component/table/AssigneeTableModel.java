@@ -12,13 +12,17 @@ import basketballpractice.domain.Training;
 import basketballpractice.domain.Coach;
 
 /**
- *
+ * Model za tabelu Assignee
  * @author Aleksandar
  */
 public class AssigneeTableModel extends AbstractTableModel {
     private final String[] columnNames = {"ID","Username"};
     private final List<Coach> assignees;
 
+    /**
+     * Konstruktor
+     * @param assignees
+     */
     public AssigneeTableModel(List<Coach> assignees) {
         this.assignees = assignees;
     }
@@ -61,6 +65,10 @@ public class AssigneeTableModel extends AbstractTableModel {
         }
     }
     
+    /**
+     * Dodaje dodeljenog Coach-a u listu
+     * @param assignee
+     */
     public void addAssignee(Coach assignee){
         if (!assignees.contains(assignee)) {
             assignees.add(assignee);
@@ -68,10 +76,19 @@ public class AssigneeTableModel extends AbstractTableModel {
         }
     }
     
+    /**
+     * Vraca Coach-a sa odredjene pozicije u listi
+     * @param row
+     * @return
+     */
     public Coach getAssigneeAt(int row) {
         return assignees.get(row);
     }
 
+    /**
+     * Vraca sve Coach-ove iz liste
+     * @return
+     */
     public List<Coach> getAssignees() {
         return assignees;
     }

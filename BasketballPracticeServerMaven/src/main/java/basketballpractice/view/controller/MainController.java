@@ -14,7 +14,7 @@ import basketballpractice.view.coordinator.MainCoordinator;
 import basketballpractice.view.form.FrmMain;
 
 /**
- *
+ * Kontroler koji upravlja serverskom glavnom formom
  * @author Aleksandar
  */
 public class MainController {
@@ -22,11 +22,18 @@ public class MainController {
     private final FrmMain frmMain;
     private Server server;
 
+    /**
+     * Konstruktor
+     * @param frmMain
+     */
     public MainController(FrmMain frmMain) {
         this.frmMain = frmMain;
         addActionListeners();
     }
 
+    /**
+     * Otvara formu FrmMain
+     */
     public void openForm() {
         frmMain.setVisible(true);
     }
@@ -57,6 +64,10 @@ public class MainController {
         });
     }
 
+    /**
+     * Vraca formu FrmMain
+     * @return
+     */
     public FrmMain getFrmMain() {
         return frmMain;
     }

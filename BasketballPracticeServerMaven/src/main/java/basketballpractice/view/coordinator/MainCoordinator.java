@@ -13,7 +13,7 @@ import basketballpractice.view.form.FrmMain;
 import basketballpractice.view.form.FrmSettings;
 
 /**
- *
+ * Glavni serverski koordinator
  * @author Aleksandar
  */
 public class MainCoordinator {
@@ -26,16 +26,27 @@ public class MainCoordinator {
         mainController = new MainController(new FrmMain());
     }
 
+    /**
+     * Singleton metoda
+     * @return
+     */
     public static MainCoordinator getInstance() {
         if (instance == null) {
             instance = new MainCoordinator();
         }
         return instance;
     }
-     public void openMainForm() {
+
+    /**
+     * Otvara formu FrmMain
+     */
+    public void openMainForm() {
         mainController.openForm();
     }
      
+    /**
+     * Otvara formu FrmSettings
+     */
     public void openSettingsForm() {
        SettingsController settingsController = new SettingsController( new FrmSettings(mainController.getFrmMain(), true));
        settingsController.openForm();

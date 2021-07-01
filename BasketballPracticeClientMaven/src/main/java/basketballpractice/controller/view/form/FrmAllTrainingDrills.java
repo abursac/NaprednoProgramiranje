@@ -13,12 +13,14 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
- *
+ * Forma koja sadrzi sve TrainingDrill-ove
  * @author Aleksandar
  */
 public class FrmAllTrainingDrills extends javax.swing.JFrame {
 
-
+    /**
+     * Konstruktor
+     */
     public FrmAllTrainingDrills() {
         setLocationRelativeTo(null);
         initComponents();
@@ -170,50 +172,98 @@ public class FrmAllTrainingDrills extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Vraca tabelu
+     * @return
+     */
     public JTable getTblTasks() {
         return tblTasks;
     }
 
+    /**
+     * Vraca labelu
+     * @return
+     */
     public JLabel getLblProject() {
         return lblProject;
     }
         
+    /**
+     * Vraca button Details
+     * @return
+     */
     public JButton getBtnDetails() {
         return btnDetails;
     }
 
+    /**
+     * Vraca button Add
+     * @return
+     */
     public JButton getBtnAdd() {
         return btnAdd;
     }
 
+    /**
+     * Vraca button Remove
+     * @return
+     */
     public JButton getBtnRemove() {
         return btnRemove;
     }
 
+    /**
+     * Vraca button Search
+     * @return
+     */
     public JButton getBtnSearch() {
         return btnSearch;
     }
 
+    /**
+     * Vraca tekstualno polje
+     * @return
+     */
     public JTextField getTxtSearch() {
         return txtSearch;
     }
     
+    /**
+     * Postavlja listener na button Details
+     * @param actionListener
+     */
     public void btnDetailsActionListener(ActionListener actionListener) {
         btnDetails.addActionListener(actionListener);
     }
 
+    /**
+     * Postavlja listener na button Add
+     * @param actionListener
+     */
     public void btnAddActionListener(ActionListener actionListener) {
         btnAdd.addActionListener(actionListener);
     }
 
+    /**
+     * Postavlja listener na button Remove
+     * @param actionListener
+     */
     public void btnRemoveActionListener(ActionListener actionListener) {
         btnRemove.addActionListener(actionListener);
     }
     
-        public void btnSearchActionListener(ActionListener actionListener) {
+    /**
+     * Postavlja listener na button Search
+     * @param actionListener
+     */
+    public void btnSearchActionListener(ActionListener actionListener) {
         btnSearch.addActionListener(actionListener);
     }
 
+    /**
+     * Postavlja listener na button Save
+     * @param actionListener
+     */
     public void btnSaveActionListener(ActionListener actionListener)
     {
         btnSave.addActionListener(actionListener);

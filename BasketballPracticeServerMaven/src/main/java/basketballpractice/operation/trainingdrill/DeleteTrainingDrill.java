@@ -9,7 +9,7 @@ import basketballpractice.domain.TrainingDrill;
 import basketballpractice.operation.AbstractGenericOperation;
 
 /**
- *
+ * Klasa koja se odnosi na brisanje TrainingDrill-a
  * @author Aleksandar
  */
 public class DeleteTrainingDrill extends AbstractGenericOperation{

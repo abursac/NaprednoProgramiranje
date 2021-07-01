@@ -10,7 +10,7 @@ import javax.swing.table.AbstractTableModel;
 import basketballpractice.domain.TrainingDrill;
 
 /**
- *
+ * Model za tabelu TrainingDrill
  * @author Aleksandar
  */
 public class TrainingDrillTableModel extends AbstractTableModel{
@@ -18,6 +18,10 @@ public class TrainingDrillTableModel extends AbstractTableModel{
     private final String[] columnNames = {"ID","Created On","Drill","Assignee","Intensity","Author"};
     private final List<TrainingDrill> trainingDrills;
 
+    /**
+     * Konstruktor
+     * @param trainingDrills
+     */
     public TrainingDrillTableModel(List<TrainingDrill> trainingDrills) {
         this.trainingDrills = trainingDrills;
     }
@@ -53,11 +57,20 @@ public class TrainingDrillTableModel extends AbstractTableModel{
         }
     }
     
+    /**
+     * Dodaje TrainingDrill u listu, samim tim u tabelu
+     * @param trainingDrill
+     */
     public void addTrainingDrill(TrainingDrill trainingDrill) {
         trainingDrills.add(trainingDrill);
         fireTableRowsInserted(trainingDrills.size()-1, trainingDrills.size()-1);
     }
     
+    /**
+     * Vraca TrainingDrill iz odabranog reda tabele
+     * @param row
+     * @return
+     */
     public TrainingDrill getTrainingDrillAt(int row) {
         return trainingDrills.get(row);
     }

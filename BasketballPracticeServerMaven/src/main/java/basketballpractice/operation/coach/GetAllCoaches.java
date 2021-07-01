@@ -10,7 +10,7 @@ import basketballpractice.domain.Coach;
 import basketballpractice.operation.AbstractGenericOperation;
 
 /**
- *
+ * Klasa koja se odnosi na selekciju Coach-eva iz baze
  * @author Aleksandar
  */
 public class GetAllCoaches extends AbstractGenericOperation {
@@ -29,6 +29,10 @@ public class GetAllCoaches extends AbstractGenericOperation {
         coaches = repository.getAll((Coach) param);
     }
 
+    /**
+     * Vraca listu Coach-eva
+     * @return
+     */
     public List<Coach> getCoaches() {
         return coaches;
     }

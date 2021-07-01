@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- *
+ * Domenska klasa TrainingDrill
  * @author Aleksandar
  */
 public class TrainingDrill implements GenericEntity{
@@ -25,13 +25,31 @@ public class TrainingDrill implements GenericEntity{
     private Intensity intensity;
     private Coach author;
 
+    /**
+     * Konstruktor
+     */
     public TrainingDrill() {
     }
     
+    /**
+     * Konstruktor
+     * @param id
+     */
     public TrainingDrill(int id) {
         this.id = id;
     }
 
+    /**
+     * Konstruktor
+     * @param id
+     * @param training
+     * @param createdOn
+     * @param description
+     * @param drill
+     * @param assignee
+     * @param intensity
+     * @param author
+     */
     public TrainingDrill(int id, Training training, Date createdOn, String description, Drill drill, Coach assignee, Intensity intensity, Coach author) {
         this.id = id;
         this.training = training;
@@ -43,75 +61,147 @@ public class TrainingDrill implements GenericEntity{
         this.author = author;
     }
     
+    /**
+     * Konstruktor
+     * @param training
+     */
     public TrainingDrill(Training training) {
         this.training = training;
     }
 
+    /**
+     * Konstruktor
+     * @param id
+     * @param training
+     */
     public TrainingDrill(int id, Training training) {
         this.id = id;
         this.training = training;
     }
 
+    /**
+     * Getter za id
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Setter za id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Getter za training
+     * @return
+     */
     public Training getTraining() {
         return training;
     }
 
+    /**
+     * Setter za training
+     * @param training
+     */
     public void setTraining(Training training) {
         this.training = training;
     }
 
+    /**
+     * Getter za datum kreiranja
+     * @return
+     */
     public Date getCreatedOn() {
         return createdOn;
     }
 
+    /**
+     * Setter za datum kreiranja
+     * @param createdOn
+     */
     public void setCreatedOn(Date createdOn) {
         this.createdOn = createdOn;
     }
 
+    /**
+     * Getter za description
+     * @return
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Setter za description
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Getter za drill
+     * @return
+     */
     public Drill getDrill() {
         return drill;
     }
 
+    /**
+     * Setter za drill
+     * @param drill
+     */
     public void setDrill(Drill drill) {
         this.drill = drill;
     }
 
+    /**
+     * Getter za dodeljenog trenera
+     * @return
+     */
     public Coach getAssignee() {
         return assignee;
     }
 
+    /**
+     * Setter za dodeljenog trenera
+     * @param assignee
+     */
     public void setAssignee(Coach assignee) {
         this.assignee = assignee;
     }
 
+    /**
+     * Getter za jacinu
+     * @return
+     */
     public Intensity getIntensity() {
         return intensity;
     }
 
+    /**
+     * Setter za jacinu
+     * @param intensity
+     */
     public void setIntensity(Intensity intensity) {
         this.intensity = intensity;
     }
 
+    /**
+     * Getter za autora treninga
+     * @return
+     */
     public Coach getAuthor() {
         return author;
     }
 
+    /**
+     * Setter za autora treninga
+     * @param author
+     */
     public void setAuthor(Coach author) {
         this.author = author;
     }

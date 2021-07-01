@@ -23,12 +23,16 @@ import basketballpractice.domain.TrainingDrill;
 import basketballpractice.domain.Coach;
 
 /**
- *
+ * Kontroler koji upravlja formom FrmAllTrainingDrills
  * @author Aleksandar
  */
 public class AllTrainingDrillsController {
     private final FrmAllTrainingDrills frmAllTrainingDrills;
 
+    /**
+     * Konstruktor
+     * @param frmAllTasks
+     */
     public AllTrainingDrillsController(FrmAllTrainingDrills frmAllTasks) {
         this.frmAllTrainingDrills = frmAllTasks;
         addActionListener();
@@ -123,6 +127,9 @@ public class AllTrainingDrillsController {
         });
     }
     
+    /**
+     * Metoda koja otvara formu
+     */
     public void openForm() {
         frmAllTrainingDrills.setLocationRelativeTo(null);
         prepareView();
@@ -150,6 +157,10 @@ public class AllTrainingDrillsController {
         frmAllTrainingDrills.getLblProject().setText(training.getId()+" "+training.getName());
     }
 
+    /**
+     * Metoda koja vraca FrmAllTrainingDrills
+     * @return
+     */
     public FrmAllTrainingDrills getFrmAllTasks() {
         return frmAllTrainingDrills;
     }

@@ -26,13 +26,17 @@ import basketballpractice.domain.Coach;
 import basketballpractice.view.form.util.FormMode;
 
 /**
- *
+ * Kontroler koji upravlja formom FrmTrainingDrill
  * @author Aleksandar
  */
 public class TrainingDrillController {
     private final FrmTrainingDrill frmTrainingDrill;
     private FormMode formMode;
 
+    /**
+     * Konstruktor
+     * @param frmProjectTask
+     */
     public TrainingDrillController(FrmTrainingDrill frmProjectTask) {
         this.frmTrainingDrill = frmProjectTask;
         addActionListener();
@@ -78,6 +82,10 @@ public class TrainingDrillController {
         });
     }
     
+    /**
+     * Metoda koja otvara formu
+     * @param formMode
+     */
     public void openForm(FormMode formMode) {
         this.formMode = formMode;
         frmTrainingDrill.setLocationRelativeTo(MainCoordinator.getInstance().getAllTrainingsController().getFrmAllTrainings());

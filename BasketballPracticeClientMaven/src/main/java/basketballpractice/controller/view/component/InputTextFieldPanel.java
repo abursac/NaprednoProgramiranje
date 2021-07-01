@@ -11,12 +11,15 @@ import basketballpractice.controller.view.component.exception.ValidationExceptio
 import basketballpractice.controller.view.component.validator.Validator;
 
 /**
- *
+ * Panel za unos teksta u polje
  * @author Aleksandar
  */
 public class InputTextFieldPanel extends javax.swing.JPanel implements GetValue{
     private Validator validator;
 
+    /**
+     * Konstruktor
+     */
     public InputTextFieldPanel() {
         initComponents();
     }
@@ -73,18 +76,34 @@ public class InputTextFieldPanel extends javax.swing.JPanel implements GetValue{
     private javax.swing.JTextField txtValue;
     // End of variables declaration//GEN-END:variables
 
-     public JLabel getLblErrorValue() {
+    /**
+     * Vraca vrednost Error labele
+     * @return
+     */
+    public JLabel getLblErrorValue() {
         return lblErrorValue;
     }
 
+    /**
+     * Vraca vrednost Text labele
+     * @return
+     */
     public JLabel getLblText() {
         return lblText;
     }
 
+    /**
+     * Vraca vrednost TextField-a
+     * @return
+     */
     public JTextField getTxtValue() {
         return txtValue;
     }
     
+    /**
+     * Postavlja validator na tekst
+     * @param validator
+     */
     public void setValidator(Validator validator) {
         this.validator = validator;
     }

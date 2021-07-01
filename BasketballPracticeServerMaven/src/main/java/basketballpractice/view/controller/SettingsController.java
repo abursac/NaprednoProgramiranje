@@ -18,17 +18,24 @@ import javax.swing.JOptionPane;
 import basketballpractice.view.form.FrmSettings;
 
 /**
- *
+ * Kontroler koji upravlja formom FrmSettings
  * @author Aleksandar
  */
 public class SettingsController {
     FrmSettings frmSettings;
     
-     public SettingsController(FrmSettings frmSettings) {
+    /**
+     * Konstruktor
+     * @param frmSettings
+     */
+    public SettingsController(FrmSettings frmSettings) {
         this.frmSettings = frmSettings;
         addActionListeners();
     }
 
+    /**
+     * Otvara formu FrmSettings
+     */
     public void openForm() {
         prepareView();
         frmSettings.setVisible(true);

@@ -9,7 +9,7 @@ import basketballpractice.domain.TrainingDrill;
 import basketballpractice.operation.AbstractGenericOperation;
 
 /**
- *
+ * Klasa koja se odnosi na menjanje TrainingDrill-a
  * @author Aleksandar
  */
 public class EditTrainingDrill extends AbstractGenericOperation {

@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 import java.util.Properties;
 
 /**
- *
+ * Klasa koja sluzi za uspostavljanje veze sa bazom podataka
  * @author Aleksandar
  */
 public class DBConnectionFactory {
@@ -21,12 +21,21 @@ public class DBConnectionFactory {
     private DBConnectionFactory() {
     }
     
+    /**
+     * Singleton metoda
+     * @return
+     */
     public static DBConnectionFactory getInstance() {
         if (instance == null)
             instance = new DBConnectionFactory();
         return instance;
     }
     
+    /**
+     * Uspostavljanje konekcije
+     * @return
+     * @throws Exception
+     */
     public Connection getConnection() throws Exception {
         if (connection == null || connection.isClosed()) {
             Properties properties = new Properties();

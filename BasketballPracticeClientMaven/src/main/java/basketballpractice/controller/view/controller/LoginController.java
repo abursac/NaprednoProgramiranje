@@ -15,17 +15,24 @@ import basketballpractice.controller.view.form.FrmLogin;
 import basketballpractice.domain.Coach;
 
 /**
- *
+ * Kontroler koji upravlja formom FrmLogin
  * @author Aleksandar
  */
 public class LoginController {
     private final FrmLogin frmLogin;
 
+    /**
+     * Konstruktor
+     * @param frmLogin
+     */
     public LoginController(FrmLogin frmLogin) {
         this.frmLogin = frmLogin;
         addActionListener();
     }
 
+    /**
+     * Metoda koja otvara formu
+     */
     public void openForm() {
         frmLogin.setVisible(true);
     }

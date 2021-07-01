@@ -12,13 +12,15 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
- *
+ * Forma za podesavanja na serverskoj strani
  * @author Aleksandar
  */
 public class FrmSettings extends javax.swing.JDialog {
 
     /**
      * Creates new form FrmSettings
+     * @param parent
+     * @param modal
      */
     public FrmSettings(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -100,40 +102,66 @@ public class FrmSettings extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * @param args the command line arguments
+     * Getter za button Save
+     * @return 
      */
 
     public JButton getBtnSave() {
         return btnSave;
     }
 
+    /**
+     * Getter za labelu
+     * @return
+     */
     public JLabel getjLabel2() {
         return jLabel2;
     }
 
+    /**
+     * Getter za labelu
+     * @return
+     */
     public JLabel getjLabel3() {
         return jLabel3;
     }
 
+    /**
+     * Getter za labelu
+     * @return
+     */
     public JLabel getjLabel4() {
         return jLabel4;
     }
 
+    /**
+     * Getter za sifru
+     * @return
+     */
     public JPasswordField getTxtPassword() {
         return txtPassword;
     }
 
+    /**
+     * Getter za txtUrl
+     * @return
+     */
     public JTextField getTxtUrl() {
         return txtUrl;
     }
 
     /**
-     * @param args the command line arguments
+     * Getter za txtUsername
+     * @return 
      */
     public JTextField getTxtUsername() {
         return txtUsername;
     }
     
+    /**
+     * Postavlja listener na button Save
+     * @param actionListener
+     */
     public void btnSaveActionListener(ActionListener actionListener) {
         btnSave.addActionListener(actionListener);
     }

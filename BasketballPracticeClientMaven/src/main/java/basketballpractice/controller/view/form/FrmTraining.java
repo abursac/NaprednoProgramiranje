@@ -14,7 +14,7 @@ import basketballpractice.controller.view.component.InputTextAreaPanel;
 import basketballpractice.controller.view.component.InputTextFieldPanel;
 
 /**
- *
+ * Forma pomocu koje se dodaje novi trening
  * @author Aleksandar
  */
 public class FrmTraining extends javax.swing.JDialog {
@@ -160,71 +160,138 @@ public class FrmTraining extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    /**
+     * Getter za button Save
+     * @return
+     */
     public JButton getBtnSave() {
         return btnSave;
     }
 
+    /**
+     * Setter za button Save
+     * @param btnSave
+     */
     public void setBtnSave(JButton btnSave) {
         this.btnSave = btnSave;
     }
 
+    /**
+     * Getter za inputDescription
+     * @return
+     */
     public InputTextAreaPanel getInputDescription() {
         return inputDescription;
     }
 
+    /**
+     * Setter za inputDescription
+     * @param inputDescription
+     */
     public void setInputDescription(InputTextAreaPanel inputDescription) {
         this.inputDescription = inputDescription;
     }
 
+    /**
+     * Getter za inputId
+     * @return
+     */
     public InputTextFieldPanel getInputId() {
         return inputId;
     }
 
+    /**
+     * Setter za inputId
+     * @param inputId
+     */
     public void setInputId(InputTextFieldPanel inputId) {
         this.inputId = inputId;
     }
 
+    /**
+     * Getter za inputName
+     * @return
+     */
     public InputTextFieldPanel getInputName() {
         return inputName;
     }
 
+    /**
+     * Setter za inputName
+     * @param inputName
+     */
     public void setInputName(InputTextFieldPanel inputName) {
         this.inputName = inputName;
     }
 
+    /**
+     * Getter za inputOwner
+     * @return
+     */
     public InputTextFieldPanel getInputOwner() {
         return inputOwner;
     }
 
+    /**
+     * Setter za inputOwner
+     * @param inputOwner
+     */
     public void setInputOwner(InputTextFieldPanel inputOwner) {
         this.inputOwner = inputOwner;
     }
 
+    /**
+     * Getter za panel
+     * @return
+     */
     public JPanel getjPanel1() {
         return jPanel1;
     }
 
+    /**
+     * Setter za panel
+     * @param jPanel1
+     */
     public void setjPanel1(JPanel jPanel1) {
         this.jPanel1 = jPanel1;
     }
 
+    /**
+     * Getter za inputAssignee
+     * @return
+     */
     public InputComboBoxPanel getInputAssignee() {
         return inputAssignee;
     }
 
+    /**
+     * Getter za tblAssignees
+     * @return
+     */
     public JTable getTblAssignees() {
         return tblAssignees;
     }
 
+    /**
+     * Getter za button AddAssignee
+     * @return
+     */
     public JButton getBtnAddAssignee() {
         return btnAddAssignee;
     }
     
-    
+    /**
+     * Postavlja listener na button Save
+     * @param actionListener
+     */
     public void addSaveBtnActionListener(ActionListener actionListener) {
         btnSave.addActionListener(actionListener);
     }
     
+    /**
+     * Postavlja listener na button AddAssignee
+     * @param actionListener
+     */
     public void addAddAssigneeBtnActionListener(ActionListener actionListener) {
         btnAddAssignee.addActionListener(actionListener);
     }

@@ -21,7 +21,7 @@ import basketballpractice.domain.Drill;
 import basketballpractice.domain.Coach;
 
 /**
- *
+ * Klasa koja obradjuje klijentske zahteve
  * @author Aleksandar
  */
 public class ProcessRequests extends Thread {
@@ -32,6 +32,11 @@ public class ProcessRequests extends Thread {
     ServerSocket serverSocket;
     boolean run;
     
+    /**
+     * Konstruktor
+     * @param socket
+     * @param serverSocket
+     */
     public ProcessRequests(Socket socket, ServerSocket serverSocket) {
         this.socket = socket;
         sender=new Sender(socket);

@@ -22,12 +22,16 @@ import basketballpractice.domain.Training;
 import basketballpractice.domain.Coach;
 
 /**
- *
+ * Kontroler koji upravlja formom FrmAllTrainings
  * @author Aleksandar
  */
 public class AllTrainingsController {
     private final FrmAllTrainings frmAllTrainings;
 
+    /**
+     * Konstruktor
+     * @param frmAllProjects
+     */
     public AllTrainingsController(FrmAllTrainings frmAllProjects) {
         this.frmAllTrainings = frmAllProjects;
         addActionListener();
@@ -120,7 +124,10 @@ public class AllTrainingsController {
 
     }
     
-     public void openForm() {
+    /**
+     * Metoda koja otvara formu
+     */
+    public void openForm() {
         frmAllTrainings.setLocationRelativeTo(null);
         prepareView();
         frmAllTrainings.setVisible(true);
@@ -144,6 +151,10 @@ public class AllTrainingsController {
         }
     }
 
+    /**
+     * Metoda koja vraca formu FrmAllTrainings
+     * @return
+     */
     public FrmAllTrainings getFrmAllTrainings() {
         return frmAllTrainings;
     }

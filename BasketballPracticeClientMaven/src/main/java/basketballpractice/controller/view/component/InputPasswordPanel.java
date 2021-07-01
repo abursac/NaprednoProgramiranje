@@ -12,7 +12,7 @@ import basketballpractice.controller.view.component.exception.ValidationExceptio
 import basketballpractice.controller.view.component.validator.Validator;
 
 /**
- *
+ * Panel za unos sifre
  * @author Aleksandar
  */
 public class InputPasswordPanel extends javax.swing.JPanel implements GetValue{
@@ -81,18 +81,34 @@ public class InputPasswordPanel extends javax.swing.JPanel implements GetValue{
     private javax.swing.JPasswordField txtPasswordValue;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Vraca vrednost Error labele
+     * @return
+     */
     public JLabel getLblErrorValue() {
         return lblErrorValue;
     }
 
+    /**
+     * Vraca vrednost Text labele
+     * @return
+     */
     public JLabel getLblText() {
         return lblText;
     }
 
+    /**
+     * Vraca vrednost sifre
+     * @return
+     */
     public JTextField getTxtPasswordValue() {
         return txtPasswordValue;
     }
     
+    /**
+     * Postavlja validator na sifru
+     * @param validator
+     */
     public void setValidator(Validator validator) {
         this.validator = validator;
     }

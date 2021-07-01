@@ -10,10 +10,15 @@ import basketballpractice.view.coordinator.MainCoordinator;
 
 
 /**
- *
+ * Glavna klasa serverskog projekta
  * @author Aleksandar
  */
 public class Main {
+
+    /**
+     * Main metoda serverskog projekta
+     * @param args
+     */
     public static void main(String[] args) {
         MainCoordinator.getInstance().openMainForm();
         //new Server().startServer();

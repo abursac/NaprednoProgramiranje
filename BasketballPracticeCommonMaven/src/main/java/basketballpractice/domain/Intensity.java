@@ -9,11 +9,29 @@ import java.io.Serializable;
 
 
 /**
- *
+ * Enum koji se odnosi na jacinu treninga
  * @author Aleksandar
  */
 public enum Intensity implements Serializable{
 
-    BEGINNER, SOLID, ADVANCED, EXCELENT;
+    /**
+     * Pocetnik
+     */
+    BEGINNER,
+
+    /**
+     * Solidan
+     */
+    SOLID,
+
+    /**
+     * Napredan
+     */
+    ADVANCED,
+
+    /**
+     * Odlican
+     */
+    EXCELENT;
     
 }

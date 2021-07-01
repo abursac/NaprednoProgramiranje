@@ -6,11 +6,16 @@
 package basketballpractice.controller.view.component.exception;
 
 /**
- *
+ * Vrsta Exception-a, nasledjuje klasu Exception
  * @author Aleksandar
  */
 public class ValidationException extends Exception {
-     public ValidationException(String message) {
+
+    /**
+     * Konstruktor koji poziva konstruktor nadklase
+     * @param message
+     */
+    public ValidationException(String message) {
         super(message);
     }
 }

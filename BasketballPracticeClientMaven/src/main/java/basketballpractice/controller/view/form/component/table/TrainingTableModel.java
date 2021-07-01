@@ -11,13 +11,17 @@ import basketballpractice.domain.Training;
 import basketballpractice.domain.Coach;
 
 /**
- *
+ * Model za tabelu TrainingTable
  * @author Aleksandar
  */
 public class TrainingTableModel extends AbstractTableModel {
     private final String[] columnNames = {"ID","Name","Author"};
     private final List<Training> trainings;
 
+    /**
+     * Konstruktor
+     * @param trainings
+     */
     public TrainingTableModel(List<Training> trainings) {
         this.trainings = trainings;
     }
@@ -61,11 +65,20 @@ public class TrainingTableModel extends AbstractTableModel {
         }
     }
     
+    /**
+     * Dodaje Training u listu, pa u tabelu
+     * @param training
+     */
     public void addTraining(Training training){
         trainings.add(training);
         fireTableRowsInserted(trainings.size()-1, trainings.size()-1);
     }
     
+    /**
+     * Vraca trening iz odredjenog reda tabele
+     * @param row
+     * @return
+     */
     public Training getTrainingAt(int row) {
         return trainings.get(row);
     }

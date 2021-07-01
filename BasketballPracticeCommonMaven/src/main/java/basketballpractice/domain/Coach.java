@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 /**
- *
+ * Domenska klasa Coach
  * @author Aleksandar
  */
 public class Coach implements GenericEntity{
@@ -22,13 +22,29 @@ public class Coach implements GenericEntity{
     private String password;
     private String email;
 
+    /**
+     * Konstruktor
+     */
     public Coach() {
     }
     
+    /**
+     * Konstruktor
+     * @param id
+     */
     public Coach(int id) {
         this.id = id;
     }
 
+    /**
+     * Konstruktor
+     * @param id
+     * @param firstname
+     * @param lastname
+     * @param username
+     * @param password
+     * @param email
+     */
     public Coach(int id, String firstname, String lastname, String username, String password, String email) {
         this.id = id;
         this.firstname = firstname;
@@ -38,50 +54,98 @@ public class Coach implements GenericEntity{
         this.email = email;
     }
 
+    /**
+     * Getter za id
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Getter za Firstname
+     * @return
+     */
     public String getFirstname() {
         return firstname;
     }
 
+    /**
+     * Getter za Lastname
+     * @return
+     */
     public String getLastname() {
         return lastname;
     }
 
+    /**
+     * Getter za username
+     * @return
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Getter za password
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Getter za email
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Setter za id
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Setter za Firstname
+     * @param firstname
+     */
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
+    /**
+     * Setter za Lastname
+     * @param lastname
+     */
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
+    /**
+     * Setter za username
+     * @param username
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * Setter za password
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     * Setter za email
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
@@ -121,21 +185,37 @@ public class Coach implements GenericEntity{
         return true;
     }
 
+    /**
+     * Vraca ime tabele u bazi kojoj odgovara klasa
+     * @return
+     */
     @Override
     public String getTableName() {
         return "coach";
     }
 
+    /**
+     * Vraca imena kolona tabele iz baze
+     * @return
+     */
     @Override
     public String getColumnNamesForInsert() {
         return "username, password, email, firstname, lastname";
     }
 
+    /**
+     * Sluzi za izradu upita za unos u bazu
+     * @return
+     */
     @Override
     public String getInsertValues() {
         return "'"+username+"','"+password+"','"+email+"','"+firstname+"','"+lastname+"'";
     }
 
+    /**
+     * Sluzi za izradu upita za unos u bazu
+     * @return
+     */
     @Override
     public String setAtrValue() {
         return "username=" + (username == null ? null : "'" + username + "'")
@@ -145,16 +225,30 @@ public class Coach implements GenericEntity{
                  +"', " + "lastname=" + (lastname == null ? null : "'" + lastname + "'");
     }
 
+    /**
+     * Sluzi za izradu uslova za upit za bazu
+     * @return
+     */
     @Override
     public String getWhereCondition() {
         return "id="+id;
     }
 
+    /**
+     * Sluzi za join-ovanje u bazi
+     * @return
+     */
     @Override
     public String getJoin() {
         return "";
     }
 
+    /**
+     * Vadi instancu klase iz baze
+     * @param rs
+     * @return
+     * @throws SQLException
+     */
     @Override
     public GenericEntity getNewRecord(ResultSet rs) throws SQLException {
         return new Coach(rs.getInt("coach.id"),rs.getString("coach.firstname"),rs.getString("coach.lastname"),rs.getString("coach.username"),rs.getString("coach.password"),rs.getString("coach.email"));

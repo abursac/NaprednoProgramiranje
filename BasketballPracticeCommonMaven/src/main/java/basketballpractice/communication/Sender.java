@@ -11,16 +11,25 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 /**
- *
+ * Klasa koja sluzi za slanje podataka
  * @author Aleksandar
  */
 public class Sender {
     private Socket socket;
 
+    /**
+     * Konstruktor
+     * @param socket
+     */
     public Sender(Socket socket) {
         this.socket = socket;
     }
     
+    /**
+     * Metoda koja salje neki objekat
+     * @param object
+     * @throws Exception
+     */
     public void send(Object object) throws Exception{
         try {
             ObjectOutputStream out=new ObjectOutputStream(socket.getOutputStream());

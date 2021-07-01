@@ -14,7 +14,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 /**
- *
+ * Glavna serverska forma
  * @author Aleksandar
  */
 public class FrmMain extends javax.swing.JFrame {
@@ -106,31 +106,50 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiSettingsActionPerformed
 
     /**
-     * @param args the command line arguments
+     * Getter za button Start
+     * @return 
      */
 
     public JButton getBtnStart() {
         return btnStart;
     }
 
+    /**
+     * Getter za button Stop
+     * @return
+     */
     public JButton getBtnStop() {
         return btnStop;
     }
 
+    /**
+     * Getter za jlbProgramName
+     * @return
+     */
     public JLabel getJlbProgramName() {
         return jlbProgramName;
     }
 
+    /**
+     * Getter za jlbStudent
+     * @return
+     */
     public JLabel getJlbStudent() {
         return jlbStudent;
     }
 
-    
-
+    /**
+     * Getter za jmServer
+     * @return
+     */
     public JMenu getJmServer() {
         return jmServer;
     }
 
+    /**
+     * Getter za jmbMain
+     * @return
+     */
     public JMenuBar getJmbMain() {
         return jmbMain;
     }
@@ -138,20 +157,33 @@ public class FrmMain extends javax.swing.JFrame {
     
 
     /**
-     * @param args the command line arguments
+     * Getter za jmiSettings
+     * @return 
      */
     public JMenuItem getJmiSettings() {
         return jmiSettings;
     }
 
+    /**
+     * Postavlja listener na button Start
+     * @param actionListener
+     */
     public void AddBtnStartActionListener(ActionListener actionListener) {
         btnStart.addActionListener(actionListener);
     }
     
+    /**
+     * Postavlja listener na button Stop
+     * @param actionListener
+     */
     public void AddBtnStopActionListener(ActionListener actionListener) {
         btnStop.addActionListener(actionListener);
     }
     
+    /**
+     * Postavlja listener na jmiSettings
+     * @param actionListener
+     */
     public void AddJmiSettingsActionListener(ActionListener actionListener) {
         jmiSettings.addActionListener(actionListener);
     }

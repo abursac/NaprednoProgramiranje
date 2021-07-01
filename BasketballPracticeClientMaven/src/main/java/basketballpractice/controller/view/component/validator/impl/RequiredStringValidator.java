@@ -9,7 +9,7 @@ import basketballpractice.controller.view.component.exception.ValidationExceptio
 import basketballpractice.controller.view.component.validator.Validator;
 
 /**
- *
+ * Implementacija interfejsa Validator, odnosi se na validaciju teksta
  * @author Aleksandar
  */
 public class RequiredStringValidator implements Validator{

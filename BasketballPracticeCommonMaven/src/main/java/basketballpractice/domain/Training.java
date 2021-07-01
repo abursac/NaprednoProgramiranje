@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
+ * Domenska klasa Training
  * @author Aleksandar
  */
 public class Training implements GenericEntity{
@@ -23,13 +23,28 @@ public class Training implements GenericEntity{
     private Coach owner;
     private List<Coach> assignees;
 
+    /**
+     * Konstruktor
+     */
     public Training() {
     }
     
+    /**
+     * Konstruktor
+     * @param id
+     */
     public Training(int id) {
         this.id = id;
     }
 
+    /**
+     * Konstruktor
+     * @param id
+     * @param name
+     * @param description
+     * @param owner
+     * @param assignee
+     */
     public Training(int id, String name, String description, Coach owner, Coach assignee) {
         this.id = id;
         this.name = name;
@@ -39,42 +54,82 @@ public class Training implements GenericEntity{
         this.assignees.add(assignee);
     }
     
+    /**
+     * Getter za id 
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Setter za id
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Getter za name
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setter za name
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Getter za description
+     * @return
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Setter za description
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Getter za owner-a
+     * @return
+     */
     public Coach getOwner() {
         return owner;
     }
 
+    /**
+     * Setter za owner-a
+     * @param owner
+     */
     public void setOwner(Coach owner) {
         this.owner = owner;
     }
 
+    /**
+     * Getter za listu dodeljenih coach-eva
+     * @return
+     */
     public List<Coach> getAssignees() {
         return assignees;
     }
 
+    /**
+     * Setter za listu dodeljenih coach-eva
+     * @param assignees
+     */
     public void setAssignees(List<Coach> assignees) {
         this.assignees = assignees;
     }

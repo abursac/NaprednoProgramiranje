@@ -13,13 +13,15 @@ import basketballpractice.controller.view.component.InputTextAreaPanel;
 import basketballpractice.controller.view.component.InputTextFieldPanel;
 
 /**
- *
+ * Forma koja prikazuje TrainingDrill
  * @author Aleksandar
  */
 public class FrmTrainingDrill extends javax.swing.JDialog {
 
     /**
      * Creates new form FrmProjectTask
+     * @param parent
+     * @param modal
      */
     public FrmTrainingDrill(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -121,42 +123,82 @@ public class FrmTrainingDrill extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    /**
+     * Getter za button Save
+     * @return
+     */
     public JButton getBtnSave() {
         return btnSave;
     }
 
+    /**
+     * Getter za inputAssignee
+     * @return
+     */
     public InputComboBoxPanel getInputAssignee() {
         return inputAssignee;
     }
 
+    /**
+     * Getter za inputId
+     * @return
+     */
     public InputTextFieldPanel getInputId() {
         return inputId;
     }
 
+    /**
+     * Getter za inputProject
+     * @return
+     */
     public InputTextFieldPanel getInputProject() {
         return inputProject;
     }
 
+    /**
+     * Getter za inputProjectTaskDescription
+     * @return
+     */
     public InputTextAreaPanel getInputProjectTaskDescription() {
         return inputProjectTaskDescription;
     }
 
+    /**
+     * Getter za inputStatus
+     * @return
+     */
     public InputComboBoxPanel getInputStatus() {
         return inputStatus;
     }
 
+    /**
+     * Getter za inputTask
+     * @return
+     */
     public InputComboBoxPanel getInputTask() {
         return inputTask;
     }
 
+    /**
+     * Getter za inputTaskDescription
+     * @return
+     */
     public InputTextAreaPanel getInputTaskDescription() {
         return inputTaskDescription;
     }
 
+    /**
+     * Getter za inputAuthor
+     * @return
+     */
     public InputTextFieldPanel getInputAuthor() {
         return inputAuthor;
     }
     
+    /**
+     * Postavlja listener na button Save
+     * @param actionListener
+     */
     public void addSaveBtnActionListener(ActionListener actionListener) {
         btnSave.addActionListener(actionListener);
     }

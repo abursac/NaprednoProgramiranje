@@ -9,7 +9,7 @@ import basketballpractice.domain.Training;
 import basketballpractice.operation.AbstractGenericOperation;
 
 /**
- *
+ * Klasa koja se odnosi na izmenu Training-a
  * @author Aleksandar
  */
 public class EditTraining extends AbstractGenericOperation{

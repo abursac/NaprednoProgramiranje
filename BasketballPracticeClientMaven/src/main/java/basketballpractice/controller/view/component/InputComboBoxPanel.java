@@ -9,7 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
 /**
- *
+ * Panel za unos ComboBox-a
  * @author Aleksandar
  */
 public class InputComboBoxPanel extends javax.swing.JPanel implements GetValue {
@@ -73,14 +73,26 @@ public class InputComboBoxPanel extends javax.swing.JPanel implements GetValue {
         }
     }
 
+    /**
+     * Metoda koja vraca vrednost ComboBox-a
+     * @return
+     */
     public JComboBox<Object> getCb() {
         return cbValue;
     }
 
+    /**
+     * Metoda koja vraca vrednost Error labele
+     * @return
+     */
     public JLabel getLblErrorValue() {
         return lblErrorValue;
     }
 
+    /**
+     * Metoda koja vraca vrednost Text labele
+     * @return
+     */
     public JLabel getLblText() {
         return lblText;
     }
