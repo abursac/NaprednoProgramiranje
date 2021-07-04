@@ -18,6 +18,12 @@ import basketballpractice.domain.TrainingDrill;
 import basketballpractice.domain.Coach;
 import basketballpractice.repository.db.DBConnectionFactory;
 import basketballpractice.repository.db.DBRepository;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.lang.reflect.Field;
+import org.json.simple.JSONObject;
 
 /**
  * Implementira konkretne metode za komuniciranje sa bazom podataka
@@ -51,6 +57,18 @@ public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
             }
             statement.close();
             rsKey.close();
+            
+            
+            JSONObject object = new JSONObject();
+            String[] columns = entity.getColumnNamesForInsert().split(",");
+            String[] values = entity.getInsertValues().split(",");
+            for(int i = 0; i < columns.length; i++)
+            {
+                object.put(columns[i], values[i]);
+            }
+            PrintStream ostr = new PrintStream(new FileOutputStream("file.txt"));
+            ostr.print(object.toJSONString());
+            ostr.close();
         } catch (SQLException ex) {
             throw ex;
         }

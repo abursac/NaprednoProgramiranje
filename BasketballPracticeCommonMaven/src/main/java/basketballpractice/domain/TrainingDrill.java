@@ -90,7 +90,10 @@ public class TrainingDrill implements GenericEntity{
     /**
      * Setter za id
      */
-    public void setId(int id) {
+    @Override
+    public void setId(int id) throws Exception {
+        if(id < 0)
+            throw new Exception("TrainingDrill ID can't be a negative number");
         this.id = id;
     }
 
@@ -105,8 +108,11 @@ public class TrainingDrill implements GenericEntity{
     /**
      * Setter za training
      * @param training
+     * @throws java.lang.Exception
      */
-    public void setTraining(Training training) {
+    public void setTraining(Training training) throws Exception {
+        if(training == null || training.getId() == 0 || training.getName().equals("") || training.getDescription().equals("") || training.getOwner() == null || training.getAssignees().isEmpty())
+            throw new Exception("Training must be fully initialized");
         this.training = training;
     }
 
@@ -121,8 +127,11 @@ public class TrainingDrill implements GenericEntity{
     /**
      * Setter za datum kreiranja
      * @param createdOn
+     * @throws java.lang.Exception
      */
-    public void setCreatedOn(Date createdOn) {
+    public void setCreatedOn(Date createdOn) throws Exception {
+        if(!(createdOn.getYear() == (new Date()).getYear() && createdOn.getMonth() == (new Date()).getMonth() && createdOn.getDate() == (new Date()).getDate()))
+            throw new Exception("Date of creation must be today's date");
         this.createdOn = createdOn;
     }
 
@@ -137,8 +146,11 @@ public class TrainingDrill implements GenericEntity{
     /**
      * Setter za description
      * @param description
+     * @throws java.lang.Exception
      */
-    public void setDescription(String description) {
+    public void setDescription(String description) throws Exception {
+        if(description.length() < 10)
+            throw new Exception("Description must be at least 10 characters long");
         this.description = description;
     }
 
@@ -153,8 +165,11 @@ public class TrainingDrill implements GenericEntity{
     /**
      * Setter za drill
      * @param drill
+     * @throws java.lang.Exception
      */
-    public void setDrill(Drill drill) {
+    public void setDrill(Drill drill) throws Exception {
+        if(drill == null || drill.getId() == 0 || drill.getName().equals("") || drill.getDescription().equals(""))
+            throw new Exception("Drill must be fully initialized.");
         this.drill = drill;
     }
 
@@ -169,8 +184,11 @@ public class TrainingDrill implements GenericEntity{
     /**
      * Setter za dodeljenog trenera
      * @param assignee
+     * @throws java.lang.Exception
      */
-    public void setAssignee(Coach assignee) {
+    public void setAssignee(Coach assignee) throws Exception {
+        if(assignee == null || assignee.getId() == 0 || assignee.getFirstname().equals("") || assignee.getLastname().equals("") || assignee.getUsername().equals("") || assignee.getPassword().equals("") || assignee.getEmail().equals(""))
+            throw new Exception("Assignee must be fully initialized.");
         this.assignee = assignee;
     }
 
@@ -201,8 +219,11 @@ public class TrainingDrill implements GenericEntity{
     /**
      * Setter za autora treninga
      * @param author
+     * @throws java.lang.Exception
      */
-    public void setAuthor(Coach author) {
+    public void setAuthor(Coach author) throws Exception {
+        if(author == null || author.getId() == 0 || author.getFirstname().equals("") || author.getLastname().equals("") || author.getUsername().equals("") || author.getPassword().equals("") || author.getEmail().equals(""))
+            throw new Exception("Author must be fully initialized.");
         this.author = author;
     }
 

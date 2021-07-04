@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Domenska klasa Drill
@@ -57,7 +59,10 @@ public class Drill implements GenericEntity{
      * Setter za id
      * @param id
      */
-    public void setId(int id) {
+    @Override
+    public void setId(int id) throws Exception {
+        if( id < 0)
+            throw new Exception("ID must be a positive number");
         this.id = id;
     }
 
@@ -72,8 +77,11 @@ public class Drill implements GenericEntity{
     /**
      * Setter za name
      * @param name
+     * @throws java.lang.Exception
      */
-    public void setName(String name) {
+    public void setName(String name) throws Exception {
+        if(name.length() < 5)
+            throw new Exception("Drill name must have at least 5 characters");
         this.name = name;
     }
 
@@ -88,8 +96,11 @@ public class Drill implements GenericEntity{
     /**
      * Setter za description
      * @param description
+     * @throws java.lang.Exception
      */
-    public void setDescription(String description) {
+    public void setDescription(String description) throws Exception {
+        if(description.length() < 10)
+            throw new Exception("Drill description must have at least 10 characters");
         this.description = description;
     }
 

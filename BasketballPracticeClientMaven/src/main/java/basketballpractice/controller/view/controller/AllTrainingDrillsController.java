@@ -50,14 +50,18 @@ public class AllTrainingDrillsController {
             public void actionPerformed(ActionEvent e) {
                 int row =  frmAllTrainingDrills.getTblTasks().getSelectedRow();
                 if (row>=0){
-                    Training training = null;
-                    TrainingDrill trainingDrill = ((TrainingDrillTableModel) frmAllTrainingDrills.getTblTasks().getModel()).getTrainingDrillAt(row);
-                    training = (Training) MainCoordinator.getInstance().getParam(Constants.PARAM_TRAINING);
-                            Coach coach = (Coach) MainCoordinator.getInstance().getParam(Constants.CURRENT_COACH);
-                            trainingDrill.setTraining(training);
-                            trainingDrill.setAuthor(coach);
                     try {
-                        Communication.getInstance().addTrainingDrill(trainingDrill);
+                        Training training = null;
+                        TrainingDrill trainingDrill = ((TrainingDrillTableModel) frmAllTrainingDrills.getTblTasks().getModel()).getTrainingDrillAt(row);
+                        training = (Training) MainCoordinator.getInstance().getParam(Constants.PARAM_TRAINING);
+                        Coach coach = (Coach) MainCoordinator.getInstance().getParam(Constants.CURRENT_COACH);
+                        trainingDrill.setTraining(training);
+                        trainingDrill.setAuthor(coach);
+                        try {
+                            Communication.getInstance().addTrainingDrill(trainingDrill);
+                        } catch (Exception ex) {
+                            Logger.getLogger(AllTrainingDrillsController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     } catch (Exception ex) {
                         Logger.getLogger(AllTrainingDrillsController.class.getName()).log(Level.SEVERE, null, ex);
                     }

@@ -36,8 +36,9 @@ public interface GenericEntity extends Serializable {
     /**
      * Setter za id
      * @param id
+     * @throws java.lang.Exception
      */
-    void setId(int id);
+    void setId(int id) throws Exception;
     
     /**
      * Sluzi za izradu upita za unos u bazu

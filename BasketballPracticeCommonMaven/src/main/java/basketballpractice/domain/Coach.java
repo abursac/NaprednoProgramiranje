@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Domenska klasa Coach
@@ -106,47 +108,65 @@ public class Coach implements GenericEntity{
      * Setter za id
      * @param id
      */
-    public void setId(int id) {
-        this.id = id;
+    @Override
+    public void setId(int id) throws Exception {
+        if(id < 0)
+            throw new Exception("ID must be 0 or larger number");
+        this.id = id; 
     }
 
     /**
      * Setter za Firstname
      * @param firstname
+     * @throws java.lang.Exception
      */
-    public void setFirstname(String firstname) {
+    public void setFirstname(String firstname) throws Exception {
+        if(firstname.length() < 2)
+            throw new Exception("First name must have at least 2 characters");     
         this.firstname = firstname;
     }
 
     /**
      * Setter za Lastname
      * @param lastname
+     * @throws java.lang.Exception
      */
-    public void setLastname(String lastname) {
+    public void setLastname(String lastname) throws Exception {
+        if(lastname.length() < 2)
+            throw new Exception("Last name must have at least 2 characters");
         this.lastname = lastname;
     }
 
     /**
      * Setter za username
      * @param username
+     * @throws java.lang.Exception
      */
-    public void setUsername(String username) {
+    public void setUsername(String username) throws Exception {
+        if(username.length() < 4)
+            throw new Exception("Username must have at least 4 characters");
         this.username = username;
     }
 
     /**
      * Setter za password
      * @param password
+     * @throws java.lang.Exception
      */
-    public void setPassword(String password) {
+    public void setPassword(String password) throws Exception {
+        if(password.length() < 8)
+            throw new Exception("Password must have at least 8 characters");
         this.password = password;
     }
 
     /**
      * Setter za email
      * @param email
+     * @throws java.lang.Exception
      */
-    public void setEmail(String email) {
+    public void setEmail(String email) throws Exception {
+        if(!".com".equals(email.substring(email.length()-4)))
+            throw new Exception("E-mail must finish with '.com'");
         this.email = email;
     }
 
@@ -200,7 +220,7 @@ public class Coach implements GenericEntity{
      */
     @Override
     public String getColumnNamesForInsert() {
-        return "username, password, email, firstname, lastname";
+        return "username,password,email,firstname,lastname";
     }
 
     /**

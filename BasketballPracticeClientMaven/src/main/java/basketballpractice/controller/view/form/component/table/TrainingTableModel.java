@@ -9,6 +9,8 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import basketballpractice.domain.Training;
 import basketballpractice.domain.Coach;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Model za tabelu TrainingTable
@@ -48,7 +50,13 @@ public class TrainingTableModel extends AbstractTableModel {
         Training training = trainings.get(rowIndex);
         switch(columnIndex) {
             case 2:
+        {
+            try {
                 training.setOwner((Coach) value);
+            } catch (Exception ex) {
+                Logger.getLogger(TrainingTableModel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
         }
     }

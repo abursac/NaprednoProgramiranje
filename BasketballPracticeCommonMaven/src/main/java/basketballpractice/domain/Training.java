@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Domenska klasa Training
@@ -66,7 +68,10 @@ public class Training implements GenericEntity{
      * Setter za id
      * @param id
      */
-    public void setId(int id) {
+    @Override
+    public void setId(int id) throws Exception {
+        if(id < 0)
+            throw new Exception("Training ID can't be a negative number");
         this.id = id;
     }
 
@@ -81,8 +86,11 @@ public class Training implements GenericEntity{
     /**
      * Setter za name
      * @param name
+     * @throws java.lang.Exception
      */
-    public void setName(String name) {
+    public void setName(String name) throws Exception {
+        if(name.length() < 5)
+            throw new Exception("Training name must have at least 5 characters");
         this.name = name;
     }
 
@@ -97,8 +105,11 @@ public class Training implements GenericEntity{
     /**
      * Setter za description
      * @param description
+     * @throws java.lang.Exception
      */
-    public void setDescription(String description) {
+    public void setDescription(String description) throws Exception {
+        if(description.length() < 10)
+            throw new Exception("Training description must have at least 10 characters");
         this.description = description;
     }
 
@@ -113,8 +124,11 @@ public class Training implements GenericEntity{
     /**
      * Setter za owner-a
      * @param owner
+     * @throws java.lang.Exception
      */
-    public void setOwner(Coach owner) {
+    public void setOwner(Coach owner) throws Exception {
+        if(owner == null || owner.getId() == 0 || owner.getFirstname().equals("") || owner.getLastname().equals("") || owner.getUsername().equals("") || owner.getPassword().equals("") || owner.getEmail().equals(""))
+            throw new Exception("Training owner must be fully initialized.");
         this.owner = owner;
     }
 
@@ -129,8 +143,11 @@ public class Training implements GenericEntity{
     /**
      * Setter za listu dodeljenih coach-eva
      * @param assignees
+     * @throws java.lang.Exception
      */
-    public void setAssignees(List<Coach> assignees) {
+    public void setAssignees(List<Coach> assignees) throws Exception {
+        if(assignees.isEmpty())
+            throw new Exception("You must add at least one assignee.");
         this.assignees = assignees;
     }
     
