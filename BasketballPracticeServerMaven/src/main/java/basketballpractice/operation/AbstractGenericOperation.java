@@ -22,9 +22,10 @@ public abstract class AbstractGenericOperation {
 
     /**
      * Konstruktor
+     * @throws java.lang.Exception
      */
     public AbstractGenericOperation() {
-        this.repository = new RepositoryDBGeneric();
+        this.repository = new RepositoryDBGeneric(false);
     }
 
     /**

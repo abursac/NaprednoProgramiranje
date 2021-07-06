@@ -48,4 +48,18 @@ public class DBConnectionFactory {
         }
         return connection;
     }
+
+    public Connection getTestConnection() throws Exception
+    {
+        if (connection == null || connection.isClosed()) {
+            Properties properties = new Properties();
+            properties.load(new FileInputStream("src/main/resources/dbconfig_1.properties"));
+            String url = properties.getProperty("url");
+            String username = properties.getProperty("username");
+            String password = properties.getProperty("password");
+            connection = DriverManager.getConnection(url, username, password);
+            connection.setAutoCommit(false);
+        }
+        return connection;
+    }
 }

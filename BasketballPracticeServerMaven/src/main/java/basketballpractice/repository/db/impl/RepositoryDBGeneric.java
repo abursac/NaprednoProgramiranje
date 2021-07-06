@@ -18,11 +18,8 @@ import basketballpractice.domain.TrainingDrill;
 import basketballpractice.domain.Coach;
 import basketballpractice.repository.db.DBConnectionFactory;
 import basketballpractice.repository.db.DBRepository;
-import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.io.PrintStream;
-import java.lang.reflect.Field;
 import org.json.simple.JSONObject;
 
 /**
@@ -31,10 +28,24 @@ import org.json.simple.JSONObject;
  */
 public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
 
+    boolean test = false;
+    Connection connection;
+    public RepositoryDBGeneric(boolean test)
+    {
+        this.test = test;
+    }
+    
     @Override
     public void add(GenericEntity entity) throws Exception {
         try {
-            Connection connection = DBConnectionFactory.getInstance().getConnection();
+            if(test)
+            {
+                connection = DBConnectionFactory.getInstance().getTestConnection();
+            }
+            else
+            {
+                connection = DBConnectionFactory.getInstance().getConnection();
+            }
             StringBuilder sb = new StringBuilder();
             sb.append("INSERT INTO ")
                     .append(entity.getTableName())
@@ -64,9 +75,9 @@ public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
             String[] values = entity.getInsertValues().split(",");
             for(int i = 0; i < columns.length; i++)
             {
-                object.put(columns[i], values[i].substring(1, values[i].length()-1));
+                object.put(columns[i], values[i]);
             }
-            PrintStream ostr = new PrintStream(new FileOutputStream("file.txt"));
+            PrintStream ostr = new PrintStream(new FileOutputStream("file.txt", true));
             ostr.print(object.toJSONString());
             ostr.close();
         } catch (SQLException ex) {
@@ -77,8 +88,15 @@ public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
     @Override
     public List<GenericEntity> getAll(GenericEntity entity) throws Exception {
         try {
-        Connection connection = DBConnectionFactory.getInstance().getConnection();
-        List<GenericEntity> entities = new ArrayList<>();
+            if(test)
+            {
+                connection = DBConnectionFactory.getInstance().getTestConnection();
+            }
+            else
+            {
+                connection = DBConnectionFactory.getInstance().getConnection();
+            }
+            List<GenericEntity> entities = new ArrayList<>();
             StringBuilder sb = new StringBuilder();
             sb.append("SELECT * FROM ")
                     .append(entity.getTableName())
@@ -110,7 +128,14 @@ public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
     @Override
     public void edit(GenericEntity entity) throws Exception {
         try {
-            Connection connection = DBConnectionFactory.getInstance().getConnection();
+            if(test)
+            {
+                connection = DBConnectionFactory.getInstance().getTestConnection();
+            }
+            else
+            {
+                connection = DBConnectionFactory.getInstance().getConnection();
+            }
             StringBuilder sb = new StringBuilder();
             sb.append("UPDATE ")
                     .append(entity.getTableName())
@@ -134,7 +159,14 @@ public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
     @Override
     public void delete(GenericEntity entity) throws Exception {
          try {
-            Connection connection = DBConnectionFactory.getInstance().getConnection();
+             if(test)
+            {
+                connection = DBConnectionFactory.getInstance().getTestConnection();
+            }
+            else
+            {
+                connection = DBConnectionFactory.getInstance().getConnection();
+            }
             StringBuilder sb = new StringBuilder();
             sb.append("DELETE FROM ")
                     .append(entity.getTableName())
@@ -153,8 +185,15 @@ public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
     @Override
     public GenericEntity getById(GenericEntity entity) throws Exception {
          try {
+             if(test)
+            {
+                connection = DBConnectionFactory.getInstance().getTestConnection();
+            }
+            else
+            {
+                connection = DBConnectionFactory.getInstance().getConnection();
+            }
             System.out.println(entity.getWhereCondition());
-            Connection connection = DBConnectionFactory.getInstance().getConnection();
             StringBuilder sb = new StringBuilder();
             sb.append("SELECT * FROM ")
                     .append(entity.getTableName())
@@ -189,8 +228,15 @@ public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
         System.out.println(training.getAssignees());
         for (Coach assignee : training.getAssignees()) {
             try{
+            if(test)
+            {
+                connection = DBConnectionFactory.getInstance().getTestConnection();
+            }
+            else
+            {
+                connection = DBConnectionFactory.getInstance().getConnection();
+            }
             String sql = "INSERT INTO coach_training VALUES (?,?,CURDATE())";
-            Connection connection = DBConnectionFactory.getInstance().getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, training.getId());
             statement.setInt(2, assignee.getId());
@@ -204,9 +250,16 @@ public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
     
     private List<Coach> getAllAssignees(Training training) {
         try {
+            if(test)
+            {
+                connection = DBConnectionFactory.getInstance().getTestConnection();
+            }
+            else
+            {
+                connection = DBConnectionFactory.getInstance().getConnection();
+            }
             String sql = "SELECT * FROM COACH WHERE id IN (SELECT coachId FROM coach_training WHERE trainingId = ?)";
             List<Coach> coaches = new ArrayList<>();
-            Connection connection = DBConnectionFactory.getInstance().getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, training.getId());
             ResultSet rs = statement.executeQuery();

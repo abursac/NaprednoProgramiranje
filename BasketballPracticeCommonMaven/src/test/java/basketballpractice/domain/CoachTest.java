@@ -5,9 +5,6 @@
  */
 package basketballpractice.domain;
 
-import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,6 +17,8 @@ import static org.junit.Assert.*;
  * @author Aleksandar
  */
 public class CoachTest {
+    
+    Coach instance;
     
     public CoachTest() {
     }
@@ -34,6 +33,7 @@ public class CoachTest {
     
     @Before
     public void setUp() {
+        instance = new Coach();
     }
     
     @After
@@ -44,22 +44,25 @@ public class CoachTest {
      * Test of setId method, of class Coach.
      */
     @Test
-    public void testSetId() {
+    public void testSetId1() {
         System.out.println("setId");
         int id1 = -1;
-        Coach instance = new Coach();
         Throwable exception = assertThrows(
                 Exception.class, () -> {
                     instance.setId(id1);
                 }
         );
         assertEquals("ID must be 0 or larger number", exception.getMessage());
+    }
+    
+    /**
+     * Test of setId method, of class Coach.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testSetId2() throws Exception {
         int id2 = 1;
-        try {
-            instance.setId(id2);
-        } catch (Exception ex) {
-            Logger.getLogger(CoachTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        instance.setId(id2);
         assertEquals(id2, instance.getId());
     }
 
@@ -67,115 +70,129 @@ public class CoachTest {
      * Test of setFirstname method, of class Coach.
      */
     @Test
-    public void testSetFirstname() {
+    public void testSetFirstname1() {
         System.out.println("setFirstname");
         String firstname = "T";
-        Coach instance = new Coach();
         Throwable exception = assertThrows(
                 Exception.class, () -> {
                     instance.setFirstname(firstname);
                 }
         );
         assertEquals("First name must have at least 2 characters", exception.getMessage());
-        String firstname2 = "Aleksandar";
-        try {
-            instance.setFirstname(firstname2);
-        } catch (Exception ex) {
-            Logger.getLogger(CoachTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        assertEquals(firstname2, instance.getFirstname());
     }
 
+    /**
+     * Test of setFirstname method, of class Coach.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testSetFirstname2() throws Exception {
+        String firstname2 = "Aleksandar";
+        instance.setFirstname(firstname2);
+        assertEquals(firstname2, instance.getFirstname());
+    }
+    
     /**
      * Test of setLastname method, of class Coach.
      */
     @Test
-    public void testSetLastname() {
+    public void testSetLastname1() {
         System.out.println("setLastname");
         String lastname = "V";
-        Coach instance = new Coach();
         Throwable exception = assertThrows(
                 Exception.class, () -> {
                     instance.setLastname(lastname);
                 }
         );
         assertEquals("Last name must have at least 2 characters", exception.getMessage());
-        String lastname2 = "Bursac";
-        try {
-            instance.setLastname(lastname2);
-        } catch (Exception ex) {
-            Logger.getLogger(CoachTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        assertEquals(lastname2, instance.getLastname());
     }
 
+    /**
+     * Test of setLastname method, of class Coach.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testSetLastname2() throws Exception {
+        String lastname2 = "Bursac";
+        instance.setLastname(lastname2);
+        assertEquals(lastname2, instance.getLastname());
+    }
+    
     /**
      * Test of setUsername method, of class Coach.
      */
     @Test
-    public void testSetUsername() {
+    public void testSetUsername1() {
         System.out.println("setUsername");
         String username = "is";
-        Coach instance = new Coach();
         Throwable exception = assertThrows(
                 Exception.class, () -> {
                     instance.setUsername(username);
                 }
         );
         assertEquals("Username must have at least 4 characters", exception.getMessage());
-        String username2 = "acobursac";
-        try {
-            instance.setUsername(username2);
-        } catch (Exception ex) {
-            Logger.getLogger(CoachTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        assertEquals(username2, instance.getUsername());
     }
 
+    /**
+     * Test of setUsername method, of class Coach.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testSetUsername2() throws Exception {
+        String username2 = "acobursac";
+        instance.setUsername(username2);
+        assertEquals(username2, instance.getUsername());
+    }
+    
     /**
      * Test of setPassword method, of class Coach.
      */
     @Test
-    public void testSetPassword() {
+    public void testSetPassword1() {
         System.out.println("setPassword");
         String password = "sifra";
-        Coach instance = new Coach();
         Throwable exception = assertThrows(
                 Exception.class, () -> {
                     instance.setPassword(password);
                 }
         );
         assertEquals("Password must have at least 8 characters", exception.getMessage());
-        String password2 = "acobursac123";
-        try {
-            instance.setPassword(password2);
-        } catch (Exception ex) {
-            Logger.getLogger(CoachTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        assertEquals(password2, instance.getPassword());
     }
 
+    /**
+     * Test of setPassword method, of class Coach.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testSetPassword2() throws Exception {
+        String password2 = "acobursac123";
+        instance.setPassword(password2);
+        assertEquals(password2, instance.getPassword());
+    }
+    
     /**
      * Test of setEmail method, of class Coach.
      */
     @Test
-    public void testSetEmail() {
+    public void testSetEmail1() {
         System.out.println("setEmail");
         String email = "acobursac18@gmail.co";
-        Coach instance = new Coach();
         Throwable exception = assertThrows(
                 Exception.class, () -> {
                     instance.setEmail(email);
                 }
         );
         assertEquals("E-mail must finish with '.com'", exception.getMessage());
-        String email2 = "acobursac18@gmail.com";
-        try {
-            instance.setEmail(email2);
-        } catch (Exception ex) {
-            Logger.getLogger(CoachTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        assertEquals(email2, instance.getEmail());
     }
 
+    /**
+     * Test of setEmail method, of class Coach.
+     * @throws java.lang.Exception
+     */
+    @Test
+    public void testSetEmail2() throws Exception {
+        String email2 = "acobursac18@gmail.com";
+        instance.setEmail(email2);
+        assertEquals(email2, instance.getEmail());
+    }
 }
