@@ -57,14 +57,10 @@ public class RepositoryDBGenericTest {
         instance.add(coach1);
         instance.add(coach2);
         Training entity = new Training(1, "Running practice", "Running 10 miles", coach1, coach2);
-        
         instance.add(entity);
- 
         List<GenericEntity> tr1 = instance.getAll(entity);
         assertEquals(true, tr1.contains(entity));
         instance.rollback();
-        
-        
     }
 
     /**
@@ -73,13 +69,16 @@ public class RepositoryDBGenericTest {
     @Test
     public void testGetAll() throws Exception {
         System.out.println("getAll");
-        GenericEntity entity = null;
         RepositoryDBGeneric instance = new RepositoryDBGeneric();
-        List<GenericEntity> expResult = null;
+        Coach coach1 = new Coach(1, "Aleksandar", "Bursac", "acobursac", "acobursac123", "acobursac18@gmail.com");
+        Coach coach2 = new Coach(2, "Phil", "Jackson", "philjackson", "philjackson123", "philjackson18@gmail.com");
+        instance.add(coach1);
+        instance.add(coach2);
+        Training entity = new Training(1, "Running practice", "Running 10 miles", coach1, coach2);
+        instance.add(entity);
         List<GenericEntity> result = instance.getAll(entity);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(Training.class, result.get(0).getClass());
+        instance.rollback();
     }
 
     /**
@@ -88,11 +87,18 @@ public class RepositoryDBGenericTest {
     @Test
     public void testEdit() throws Exception {
         System.out.println("edit");
-        GenericEntity entity = null;
         RepositoryDBGeneric instance = new RepositoryDBGeneric();
+        Coach coach1 = new Coach(1, "Aleksandar", "Bursac", "acobursac", "acobursac123", "acobursac18@gmail.com");
+        Coach coach2 = new Coach(2, "Phil", "Jackson", "philjackson", "philjackson123", "philjackson18@gmail.com");
+        instance.add(coach1);
+        instance.add(coach2);
+        Training entity = new Training(1, "Running practice", "Running 10 miles", coach1, coach2);
+        instance.add(entity);
+        entity.setName("Running workout");
         instance.edit(entity);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<GenericEntity> list = instance.getAll(entity);
+        assertEquals(true, list.contains(entity));
+        instance.rollback();
     }
 
     /**
@@ -100,40 +106,20 @@ public class RepositoryDBGenericTest {
      */
     @Test
     public void testDelete() throws Exception {
-        System.out.println("delete");
-        GenericEntity entity = null;
+        System.out.println("add");
         RepositoryDBGeneric instance = new RepositoryDBGeneric();
+        Coach coach1 = new Coach(1, "Aleksandar", "Bursac", "acobursac", "acobursac123", "acobursac18@gmail.com");
+        Coach coach2 = new Coach(2, "Phil", "Jackson", "philjackson", "philjackson123", "philjackson18@gmail.com");
+        instance.add(coach1);
+        instance.add(coach2);
+        Training entity = new Training(1, "Running practice", "Running 10 miles", coach1, coach2);
+        instance.add(entity);
+        List<GenericEntity> tr1 = instance.getAll(entity);
+        assertEquals(true, tr1.contains(entity));
         instance.delete(entity);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<GenericEntity> tr2 = instance.getAll(entity);
+        assertEquals(false, tr2.contains(entity));
+        instance.rollback();
     }
 
-    /**
-     * Test of getById method, of class RepositoryDBGeneric.
-     */
-    @Test
-    public void testGetById() throws Exception {
-        System.out.println("getById");
-        GenericEntity entity = null;
-        RepositoryDBGeneric instance = new RepositoryDBGeneric();
-        GenericEntity expResult = null;
-        GenericEntity result = instance.getById(entity);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of addAssignees method, of class RepositoryDBGeneric.
-     */
-    @Test
-    public void testAddAssignees() {
-        System.out.println("addAssignees");
-        Training training = null;
-        RepositoryDBGeneric instance = new RepositoryDBGeneric();
-        instance.addAssignees(training);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

@@ -64,7 +64,7 @@ public class RepositoryDBGeneric implements DBRepository<GenericEntity> {
             String[] values = entity.getInsertValues().split(",");
             for(int i = 0; i < columns.length; i++)
             {
-                object.put(columns[i], values[i]);
+                object.put(columns[i], values[i].substring(1, values[i].length()-1));
             }
             PrintStream ostr = new PrintStream(new FileOutputStream("file.txt"));
             ostr.print(object.toJSONString());
