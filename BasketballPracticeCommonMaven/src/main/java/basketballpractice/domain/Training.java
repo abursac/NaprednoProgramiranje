@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Domenska klasa Training
+ * Domenska klasa koja predstavlja trening
  * @author Aleksandar
  */
 public class Training implements GenericEntity{
@@ -26,13 +26,13 @@ public class Training implements GenericEntity{
     private List<Coach> assignees;
 
     /**
-     * Konstruktor
+     * Bezparametarski konstruktor
      */
     public Training() {
     }
     
     /**
-     * Konstruktor
+     * Konstruktor koji kao parametar prima id
      * @param id
      */
     public Training(int id) {
@@ -40,12 +40,12 @@ public class Training implements GenericEntity{
     }
 
     /**
-     * Konstruktor
-     * @param id
-     * @param name
-     * @param description
-     * @param owner
-     * @param assignee
+     * Konstruktor koji kao parametre prima sva polja klase
+     * @param id Id treninga kao ceo broj
+     * @param name Ime treninga kao String
+     * @param description Opis treninga kao String
+     * @param owner Kreator treninga kao Coach
+     * @param assignee Ucesnik treninga kao Coach
      */
     public Training(int id, String name, String description, Coach owner, Coach assignee) {
         this.id = id;
@@ -57,7 +57,7 @@ public class Training implements GenericEntity{
     }
     
     /**
-     * Getter za id 
+     * Vraca vrednost id-ja
      * @return
      */
     public int getId() {
@@ -65,8 +65,8 @@ public class Training implements GenericEntity{
     }
 
     /**
-     * Setter za id
-     * @param id
+     * Postavlja vrednost id-ja na onu vrednost koju prosledimo kao parametar
+     * @param id Id treninga kao ceo broj
      */
     @Override
     public void setId(int id) throws Exception {
@@ -76,7 +76,7 @@ public class Training implements GenericEntity{
     }
 
     /**
-     * Getter za name
+     * Vraca vrednost imena treninga
      * @return
      */
     public String getName() {
@@ -84,9 +84,9 @@ public class Training implements GenericEntity{
     }
 
     /**
-     * Setter za name
-     * @param name
-     * @throws java.lang.Exception
+     * Postavlja vrednost imena treninga na onu vrednost koju prosledimo kao parametar
+     * @param name Ime treninga kao String
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko je prosledjeno ime treninga krace od 5 karaktera
      */
     public void setName(String name) throws Exception {
         if(name.length() < 5)
@@ -95,7 +95,7 @@ public class Training implements GenericEntity{
     }
 
     /**
-     * Getter za description
+     * Vraca vrednost opisa treninga
      * @return
      */
     public String getDescription() {
@@ -103,9 +103,9 @@ public class Training implements GenericEntity{
     }
 
     /**
-     * Setter za description
-     * @param description
-     * @throws java.lang.Exception
+     * Postavlja vrednost opisa treninga na onu vrednost koju prosledimo kao parametar
+     * @param description Opis treninga kao String
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko je prosledjeni opis treninga kraci od 10 karaktera
      */
     public void setDescription(String description) throws Exception {
         if(description.length() < 10)
@@ -114,7 +114,7 @@ public class Training implements GenericEntity{
     }
 
     /**
-     * Getter za owner-a
+     * Vraca vrednost owner-a treninga
      * @return
      */
     public Coach getOwner() {
@@ -122,9 +122,9 @@ public class Training implements GenericEntity{
     }
 
     /**
-     * Setter za owner-a
-     * @param owner
-     * @throws java.lang.Exception
+     * Postavlja vrednost owner-a treninga na onu vrednost koju prosledimo kao parametar
+     * @param owner Owner treninga kao Coach
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko prosledjeni trener nije potpuno inicijalizovan
      */
     public void setOwner(Coach owner) throws Exception {
         if(owner == null || owner.getId() == 0 || owner.getFirstname().equals("") || owner.getLastname().equals("") || owner.getUsername().equals("") || owner.getPassword().equals("") || owner.getEmail().equals(""))
@@ -133,7 +133,7 @@ public class Training implements GenericEntity{
     }
 
     /**
-     * Getter za listu dodeljenih coach-eva
+     * Vraca listu dodeljenih coach-eva
      * @return
      */
     public List<Coach> getAssignees() {
@@ -141,9 +141,9 @@ public class Training implements GenericEntity{
     }
 
     /**
-     * Setter za listu dodeljenih coach-eva
-     * @param assignees
-     * @throws java.lang.Exception
+     * Postavlja vrednost liste dodeljenih coach-eva na onu koju prosledimo kao parametar
+     * @param assignees Dodeljeni treneri kao List(Coach)
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko je prosledjena lista trenera prazna
      */
     public void setAssignees(List<Coach> assignees) throws Exception {
         if(assignees.isEmpty())

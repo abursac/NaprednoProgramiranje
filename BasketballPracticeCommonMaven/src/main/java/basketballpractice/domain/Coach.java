@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Domenska klasa Coach
+ * Domenska klasa koja predstavlja trenera
  * @author Aleksandar
  */
 public class Coach implements GenericEntity{
@@ -25,27 +25,27 @@ public class Coach implements GenericEntity{
     private String email;
 
     /**
-     * Konstruktor
+     * Bezparametarski konstruktor
      */
     public Coach() {
     }
     
     /**
-     * Konstruktor
-     * @param id
+     * Konstruktor koji ima samo parametar id
+     * @param id Id trenera kao ceo broj
      */
     public Coach(int id) {
         this.id = id;
     }
 
     /**
-     * Konstruktor
-     * @param id
-     * @param firstname
-     * @param lastname
-     * @param username
-     * @param password
-     * @param email
+     * Konstruktor koji kao parametre prima sva polja klase
+     * @param id Id trenera kao ceo broj
+     * @param firstname Ime trenera kao String
+     * @param lastname Prezime trenera kao String
+     * @param username Korisnicko ime trenera kao String
+     * @param password Sifra trenera kao String
+     * @param email E-mail adresa trenera kao String
      */
     public Coach(int id, String firstname, String lastname, String username, String password, String email) {
         this.id = id;
@@ -57,7 +57,7 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Getter za id
+     * Vraca id trenera
      * @return
      */
     public int getId() {
@@ -65,7 +65,7 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Getter za Firstname
+     * Vraca ime trenera
      * @return
      */
     public String getFirstname() {
@@ -73,7 +73,7 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Getter za Lastname
+     * Vraca prezime trenera
      * @return
      */
     public String getLastname() {
@@ -81,7 +81,7 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Getter za username
+     * Vraca korisnicko ime trenera
      * @return
      */
     public String getUsername() {
@@ -89,7 +89,7 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Getter za password
+     * Vraca sifru trenera
      * @return
      */
     public String getPassword() {
@@ -97,7 +97,7 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Getter za email
+     * Vraca e-mail adresu trenera
      * @return
      */
     public String getEmail() {
@@ -105,8 +105,8 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Setter za id
-     * @param id
+     * Postavlja vrednost id-ja na onu vrednost koju prosledimo kao parametar
+     * @param id Id trenera kao ceo broj
      */
     @Override
     public void setId(int id) throws Exception {
@@ -116,9 +116,9 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Setter za Firstname
-     * @param firstname
-     * @throws java.lang.Exception
+     * Postavlja vrednost imena trenera na onu vrednost koju prosledimo kao parametar
+     * @param firstname Ime trenera kao String
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko je prosledjeno ime krace od 2 karaktera
      */
     public void setFirstname(String firstname) throws Exception {
         if(firstname.length() < 2)
@@ -127,9 +127,9 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Setter za Lastname
-     * @param lastname
-     * @throws java.lang.Exception
+     * Postavlja vrednost prezimena trenera na onu vrednost koju prosledimo kao parametar
+     * @param lastname Prezime trenera kao String
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko je prosledjeno prezime krace od 2 karaktera
      */
     public void setLastname(String lastname) throws Exception {
         if(lastname.length() < 2)
@@ -138,9 +138,9 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Setter za username
-     * @param username
-     * @throws java.lang.Exception
+     * Postavlja vrednost korisnickog imena trenera na onu vrednost koju prosledimo kao parametar
+     * @param username Korisnicko ime trenera kao String
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko je prosledjeno korisnicko ime krace od 4 karaktera
      */
     public void setUsername(String username) throws Exception {
         if(username.length() < 4)
@@ -149,9 +149,9 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Setter za password
-     * @param password
-     * @throws java.lang.Exception
+     * Postavlja vrednost sifre trenera na onu vrednost koju prosledimo kao parametar
+     * @param password Sifra trenera kao String
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko je prosledjena sifra kraca od 8 karaktera
      */
     public void setPassword(String password) throws Exception {
         if(password.length() < 8)
@@ -160,9 +160,9 @@ public class Coach implements GenericEntity{
     }
 
     /**
-     * Setter za email
-     * @param email
-     * @throws java.lang.Exception
+     * Postavlja vrednost e-maila trenera na onu vrednost koju prosledimo kao parametar
+     * @param email E-mail adresa trenera kao String
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko se prosledjena e-mail adresa ne zavrsava sa '.com'
      */
     public void setEmail(String email) throws Exception {
         if(!".com".equals(email.substring(email.length()-4)))
@@ -265,7 +265,7 @@ public class Coach implements GenericEntity{
 
     /**
      * Vadi instancu klase iz baze
-     * @param rs
+     * @param rs Instanca klase iz baze kao ResultSet
      * @return
      * @throws SQLException
      */

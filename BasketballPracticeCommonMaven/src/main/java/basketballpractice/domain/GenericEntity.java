@@ -34,8 +34,8 @@ public interface GenericEntity extends Serializable {
     String getInsertValues();
 
     /**
-     * Setter za id
-     * @param id
+     * Postavlja vrednost id-ja na onu vrednost koju prosledimo kao parametar
+     * @param id Id kao String
      * @throws java.lang.Exception
      */
     void setId(int id) throws Exception;
@@ -60,7 +60,7 @@ public interface GenericEntity extends Serializable {
     
     /**
      * Vadi instancu klase iz baze
-     * @param rs
+     * @param rs Instanca klase iz baze kao ResultSet
      * @return
      * @throws SQLException
      */

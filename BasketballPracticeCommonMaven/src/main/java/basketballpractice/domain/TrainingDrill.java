@@ -26,29 +26,29 @@ public class TrainingDrill implements GenericEntity{
     private Coach author;
 
     /**
-     * Konstruktor
+     * Bezparametarski konstruktor
      */
     public TrainingDrill() {
     }
     
     /**
-     * Konstruktor
-     * @param id
+     * Konstruktor koji kao parametar prima id
+     * @param id Id kao ceo broj
      */
     public TrainingDrill(int id) {
         this.id = id;
     }
 
     /**
-     * Konstruktor
-     * @param id
-     * @param training
-     * @param createdOn
-     * @param description
-     * @param drill
-     * @param assignee
-     * @param intensity
-     * @param author
+     * Konstruktor koji kao parametar prima sva polja klase
+     * @param id Id vezbe kao ceo broj
+     * @param training Trening kojem vezba pripada kao Training
+     * @param createdOn Datum kreiranja vezbe kao Date
+     * @param description Opis vezbe kao String
+     * @param drill Vezba kao Drill
+     * @param assignee Dodeljeni trener kao Coach
+     * @param intensity Intenzitet vezbe kao Intensity
+     * @param author Autor vezbe kao Coach
      */
     public TrainingDrill(int id, Training training, Date createdOn, String description, Drill drill, Coach assignee, Intensity intensity, Coach author) {
         this.id = id;
@@ -62,17 +62,17 @@ public class TrainingDrill implements GenericEntity{
     }
     
     /**
-     * Konstruktor
-     * @param training
+     * Konstruktor koji kao parametar prima trening
+     * @param training Trening kojem vezba pripada kao Training
      */
     public TrainingDrill(Training training) {
         this.training = training;
     }
 
     /**
-     * Konstruktor
-     * @param id
-     * @param training
+     * Konstruktor koji kao parametre prima id i trening
+     * @param id Id vezbe kao ceo broj
+     * @param training Trening kojem vezba pripada kao Training
      */
     public TrainingDrill(int id, Training training) {
         this.id = id;
@@ -80,7 +80,7 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Getter za id
+     * Vraca vrednost id-ja vezbe
      * @return
      */
     public int getId() {
@@ -88,7 +88,7 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Setter za id
+     * Postavlja vrednost id-ja vezbe na onu koju prosledimo kroz parametar
      */
     @Override
     public void setId(int id) throws Exception {
@@ -98,7 +98,7 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Getter za training
+     * Vraca vrednost treninga
      * @return
      */
     public Training getTraining() {
@@ -106,9 +106,9 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Setter za training
-     * @param training
-     * @throws java.lang.Exception
+     * Postavlja vrednost treninga kojem vezba pripada na onu koju prosledimo kroz parametar
+     * @param training Trening kojem vezba pripada kao Training
+     * @throws java.lang.Exception Stvara se izuzetak ako Trening nije potpuno inicijalizovan
      */
     public void setTraining(Training training) throws Exception {
         if(training == null || training.getId() == 0 || training.getName().equals("") || training.getDescription().equals("") || training.getOwner() == null || training.getAssignees().isEmpty())
@@ -117,7 +117,7 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Getter za datum kreiranja
+     * Vraca datum kreiranja vezbe
      * @return
      */
     public Date getCreatedOn() {
@@ -125,9 +125,9 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Setter za datum kreiranja
-     * @param createdOn
-     * @throws java.lang.Exception
+     * Postavlja vrednost datuma kreiranja vezbe na onu koju prosledimo kroz parametar
+     * @param createdOn Datum kreiranja kao Date
+     * @throws java.lang.Exception Stvara se izuzetak ako to nije danasnji datum
      */
     public void setCreatedOn(Date createdOn) throws Exception {
         if(!(createdOn.getYear() == (new Date()).getYear() && createdOn.getMonth() == (new Date()).getMonth() && createdOn.getDate() == (new Date()).getDate()))
@@ -136,7 +136,7 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Getter za description
+     * Vraca opis vezbe
      * @return
      */
     public String getDescription() {
@@ -144,9 +144,9 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Setter za description
-     * @param description
-     * @throws java.lang.Exception
+     * Postavlja opis vezbe na onaj koji prosledimo kroz parametar
+     * @param description Opis vezbe kao String
+     * @throws java.lang.Exception Stvara se izuzetak ako je opis vezbe kraci od 10 karaktera
      */
     public void setDescription(String description) throws Exception {
         if(description.length() < 10)
@@ -155,7 +155,7 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Getter za drill
+     * Vraca vezbu
      * @return
      */
     public Drill getDrill() {
@@ -163,9 +163,9 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Setter za drill
-     * @param drill
-     * @throws java.lang.Exception
+     * Postavlja vrednost vezbe na onu koju prosledimo kroz parametar
+     * @param drill Vezba kao Drill
+     * @throws java.lang.Exception Stvara se izuzetak ako vezba nije potpuno inicijalizovana
      */
     public void setDrill(Drill drill) throws Exception {
         if(drill == null || drill.getId() == 0 || drill.getName().equals("") || drill.getDescription().equals(""))
@@ -174,7 +174,7 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Getter za dodeljenog trenera
+     * Vraca dodeljenog trenera
      * @return
      */
     public Coach getAssignee() {
@@ -182,9 +182,9 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Setter za dodeljenog trenera
-     * @param assignee
-     * @throws java.lang.Exception
+     * Postavlja dodeljenog trenera na onog kojeg prosledimo kroz konstruktor
+     * @param assignee Dodeljeni trener kao Coach
+     * @throws java.lang.Exception Stvara se izuzetak ako dodeljeni trener nije potpuno inicijalizovan
      */
     public void setAssignee(Coach assignee) throws Exception {
         if(assignee == null || assignee.getId() == 0 || assignee.getFirstname().equals("") || assignee.getLastname().equals("") || assignee.getUsername().equals("") || assignee.getPassword().equals("") || assignee.getEmail().equals(""))
@@ -193,7 +193,7 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Getter za jacinu
+     * Vraca vrednost intenziteta treninga
      * @return
      */
     public Intensity getIntensity() {
@@ -201,7 +201,7 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Setter za jacinu
+     * Postavlja vrednost intenziteta treninga na onu koju mu prosledimo kroz parametar
      * @param intensity
      */
     public void setIntensity(Intensity intensity) {
@@ -209,7 +209,7 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Getter za autora treninga
+     * Vraca vrednost autora treninga
      * @return
      */
     public Coach getAuthor() {
@@ -217,9 +217,9 @@ public class TrainingDrill implements GenericEntity{
     }
 
     /**
-     * Setter za autora treninga
-     * @param author
-     * @throws java.lang.Exception
+     * Postavlja vrednost autora treninga na onu koju mu prosledimo kroz parametar
+     * @param author Autor treninga kao Coach
+     * @throws java.lang.Exception Stvara se izuzetak ako autor nije potpuno inicijalizovan
      */
     public void setAuthor(Coach author) throws Exception {
         if(author == null || author.getId() == 0 || author.getFirstname().equals("") || author.getLastname().equals("") || author.getUsername().equals("") || author.getPassword().equals("") || author.getEmail().equals(""))

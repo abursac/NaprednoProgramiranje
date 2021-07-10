@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Domenska klasa Drill
+ * Domenska klasa koja predstavlja vezbu
  * @author Aleksandar
  */
 public class Drill implements GenericEntity{
@@ -22,24 +22,24 @@ public class Drill implements GenericEntity{
     private String description;
 
     /**
-     * Konstruktor
+     * Bezparametarski konstruktor
      */
     public Drill() {
     }
     
     /**
-     * Konstruktor
-     * @param id
+     * Konstruktor koji kao parametar prima id vezbe
+     * @param id Id vezbe kao ceo broj
      */
     public Drill(int id) {
         this.id = id;
     }
 
     /**
-     * Konstruktor
-     * @param id
-     * @param name
-     * @param description
+     * Konstruktor koji kao parametre prima sva polja klase
+     * @param id Id vezbe kao ceo broj
+     * @param name Ime vezbe kao String
+     * @param description Opis vezbe kao String
      */
     public Drill(int id, String name, String description) {
         this.id = id;
@@ -48,7 +48,7 @@ public class Drill implements GenericEntity{
     }
 
     /**
-     * Getter za id
+     * Vraca id vezbe
      * @return
      */
     public int getId() {
@@ -56,8 +56,8 @@ public class Drill implements GenericEntity{
     }
 
     /**
-     * Setter za id
-     * @param id
+     * Postavlja vrednost id-ja na onu vrednost koju prosledimo kao parametar
+     * @param id Id vezbe kao ceo broj
      */
     @Override
     public void setId(int id) throws Exception {
@@ -67,7 +67,7 @@ public class Drill implements GenericEntity{
     }
 
     /**
-     * Getter za name
+     * Vraca ime vezbe
      * @return
      */
     public String getName() {
@@ -75,9 +75,9 @@ public class Drill implements GenericEntity{
     }
 
     /**
-     * Setter za name
-     * @param name
-     * @throws java.lang.Exception
+     * Postavlja vrednost imena vezbe na onu vrednost koju prosledimo kao parametar
+     * @param name Ime vezbe kao String
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko je prosledjeno ime vezbe krace od 5 karaktera
      */
     public void setName(String name) throws Exception {
         if(name.length() < 5)
@@ -86,7 +86,7 @@ public class Drill implements GenericEntity{
     }
 
     /**
-     * Getter za description
+     * Vraca opis vezbe
      * @return
      */
     public String getDescription() {
@@ -94,9 +94,9 @@ public class Drill implements GenericEntity{
     }
 
     /**
-     * Setter za description
-     * @param description
-     * @throws java.lang.Exception
+     * Postavlja vrednost opisa vezbe na onu vrednost koju prosledimo kao parametar
+     * @param description Opis vezbe kao String
+     * @throws java.lang.Exception Stvara se izuzetak ukoliko je prosledjeni opis vezbe kraci od 10 karaktera
      */
     public void setDescription(String description) throws Exception {
         if(description.length() < 10)
@@ -198,7 +198,7 @@ public class Drill implements GenericEntity{
 
     /**
      * Vadi instancu klase iz baze
-     * @param rs
+     * @param rs Instanca klase iz baze kao ResultSet
      * @return
      * @throws SQLException
      */
